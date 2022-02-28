@@ -187,7 +187,7 @@ def login():
 
 @application.route('/logout', methods=['GET', 'POST'])
 def logout():
-    session['logged_in'] = False
+    #session['logged_in'] = False
     return redirect(url_for('index'))
 
 
@@ -248,11 +248,11 @@ def confirm():
 
     userotp = request.form['otp']
     if generate == int(userotp):
-        session['logged_in'] = True
-        return redirect(url_for('index'))
+        #session['logged_in'] = True
+        return redirect(url_for('home'))
     elif generated_otp == int(userotp):
-        session['logged_in'] = True
-        return redirect(url_for('index'))
+        #session['logged_in'] = True
+        return redirect(url_for('home'))
     else:
         return redirect('/confirm')
         # return render_template('home.html')
